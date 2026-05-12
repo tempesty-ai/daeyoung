@@ -3,8 +3,8 @@ import { cva } from 'class-variance-authority';
 import Link from 'next/link';
 
 const contactLinks = [
-  { label: '서울 중구 을지로 193', href: 'https://map.naver.com/' },
-  { label: '02-2264-2300', href: 'tel:0222642300' },
+  { label: '서울 중구 을지로 183', href: 'https://map.naver.com/' },
+  { label: '02-2279-7538~9', href: 'tel:0222797538' },
   { label: '견적문의', href: '/#quote' },
 ];
 

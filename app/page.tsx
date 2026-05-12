@@ -140,7 +140,7 @@ export default function Home() {
         <div className="grid gap-8 rounded-[8px] bg-foreground p-6 text-background md:grid-cols-12 md:p-10">
           <div className="md:col-span-7">
             <p className="text-sm font-bold uppercase text-background/60">시공 및 견적 문의</p>
-            <h2 className="mt-3 text-4xl font-black tracking-normal md:text-6xl">{businessInfo.tel.replaceAll('-', '.')}</h2>
+            <h2 className="mt-3 text-4xl font-black tracking-normal md:text-6xl">{businessInfo.tel}</h2>
             <p className="mt-4 text-background/70">{businessInfo.hours} · {businessInfo.closed}</p>
           </div>
           <div className="text-sm text-background/70 md:col-span-5 md:self-end">

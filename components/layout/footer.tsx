@@ -36,7 +36,7 @@ export async function Footer() {
           </div>
           <div className="font-semibold md:col-span-4 md:text-right">
             <p>시공 및 견적 문의</p>
-            <p className="text-2xl text-background">{businessInfo.tel.replaceAll('-', '.')}</p>
+            <p className="text-2xl text-background">{businessInfo.tel}</p>
             <p>{businessInfo.hours}</p>
             <p>{businessInfo.closed}</p>
           </div>

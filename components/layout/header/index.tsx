@@ -67,7 +67,7 @@ export function Header({ collections }: HeaderProps) {
           href="/#quote"
           className="hidden rounded-sm bg-foreground px-3 py-1 text-sm font-semibold uppercase text-background md:block"
         >
-          02.2264.2300
+          02.2279.7538~9
         </Link>
       </nav>
     </header>
