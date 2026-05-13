@@ -12,14 +12,14 @@ export default function Home() {
 
   return (
     <PageLayout>
-      <section className="grid min-h-fold md:grid-cols-12 md:gap-sides">
-        <div className="flex flex-col justify-end gap-8 p-sides pt-top-spacing md:col-span-5">
+      <section className="grid min-h-[760px] md:min-h-[82svh] md:grid-cols-12 md:gap-sides">
+        <div className="flex flex-col justify-end gap-6 p-sides pb-10 pt-28 md:col-span-5 md:pb-14 md:pt-top-spacing">
           <Badge className="w-fit" variant="outline-secondary">
             방산시장 도배 · 장판 · 마루 · 데코타일
           </Badge>
           <div>
-            <h1 className="text-5xl font-black leading-none tracking-normal md:text-7xl xl:text-8xl">대영벽지</h1>
-            <p className="mt-5 max-w-xl text-lg font-medium text-foreground/70">
+            <h1 className="text-5xl font-black leading-none tracking-normal md:text-6xl xl:text-7xl">대영벽지</h1>
+            <p className="mt-5 max-w-md text-base font-medium leading-7 text-foreground/70 md:text-lg">
               투명하고 거품없는 견적, 제품 상담부터 시공 예약까지 한 번에 안내합니다.
             </p>
           </div>
@@ -38,13 +38,13 @@ export default function Home() {
             </Button>
           </div>
         </div>
-        <Link href={`/product/${heroProduct.handle}`} className="relative min-h-[520px] md:col-span-7" prefetch>
+        <Link href={`/product/${heroProduct.handle}`} className="relative min-h-[430px] overflow-hidden md:col-span-7 md:min-h-0" prefetch>
           <Image src={heroProduct.featuredImage.url} alt={heroProduct.title} fill priority className="object-cover" />
           <div className="absolute inset-x-0 bottom-0 p-sides">
-            <div className="max-w-md rounded-[8px] bg-background/85 p-3 backdrop-blur">
-              <p className="text-sm font-semibold uppercase text-foreground/60">대표 제품</p>
+            <div className="max-w-md rounded-[8px] border border-border/60 bg-background/88 p-4 backdrop-blur">
+              <p className="text-xs font-semibold text-foreground/55">대표 제품</p>
               <div className="mt-2 flex items-end justify-between gap-4">
-                <p className="text-lg font-semibold">{heroProduct.title}</p>
+                <p className="text-base font-semibold md:text-lg">{heroProduct.title}</p>
                 <p className="shrink-0 text-lg font-bold">
                   {formatPrice(heroProduct.priceRange.minVariantPrice.amount, 'KRW')}
                 </p>
@@ -54,10 +54,10 @@ export default function Home() {
         </Link>
       </section>
 
-      <section className="grid gap-sides p-sides md:grid-cols-4">
+      <section className="grid gap-6 p-sides py-10 md:grid-cols-4 md:py-14">
         {collections.map(collection => (
           <Link key={collection.handle} href={`/shop/${collection.handle}`} className="group block" prefetch>
-            <div className="aspect-square overflow-hidden bg-muted">
+            <div className="aspect-[4/5] overflow-hidden rounded-[8px] bg-muted md:aspect-square">
               <Image
                 src={products.find(product => product.categoryId === collection.handle)?.featuredImage.url ?? products[0].featuredImage.url}
                 alt={collection.title}
@@ -66,10 +66,10 @@ export default function Home() {
                 className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </div>
-            <div className="mt-3 flex items-start justify-between gap-4">
+            <div className="mt-4 flex items-start justify-between gap-4">
               <div>
-                <h2 className="text-2xl font-bold">{collection.title}</h2>
-                <p className="mt-1 text-sm text-foreground/60">{collection.description}</p>
+                <h2 className="text-xl font-bold">{collection.title}</h2>
+                <p className="mt-1.5 text-sm leading-6 text-foreground/60">{collection.description}</p>
               </div>
               <ArrowRight className="mt-1 size-5" />
             </div>
@@ -77,36 +77,36 @@ export default function Home() {
         ))}
       </section>
 
-      <section id="guide" className="grid gap-sides p-sides md:grid-cols-12">
+      <section id="guide" className="grid gap-6 border-t border-border/70 p-sides py-12 md:grid-cols-12 md:py-16">
         <div className="md:col-span-4">
           <Badge variant="outline-secondary">이용안내</Badge>
-          <h2 className="mt-4 text-4xl font-black tracking-normal">상담부터 시공까지</h2>
+          <h2 className="mt-4 max-w-xs text-3xl font-black leading-tight tracking-normal md:text-4xl">상담부터 시공까지</h2>
         </div>
         <div className="grid gap-3 md:col-span-8 md:grid-cols-2">
           {guideSteps.map(step => (
-            <div key={step.title} className="rounded-[8px] bg-muted p-5">
-              <h3 className="text-xl font-bold">{step.title}</h3>
+            <div key={step.title} className="rounded-[8px] border border-border/70 bg-background p-5">
+              <h3 className="text-lg font-bold">{step.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-foreground/65">{step.body}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="grid gap-sides p-sides md:grid-cols-3">
+      <section className="grid gap-3 p-sides md:grid-cols-3">
         {quickLinks.map(link => (
-          <Link key={link.title} href={link.href} className="rounded-[8px] border border-border p-5 transition-colors hover:bg-muted">
-            <p className="text-xl font-bold">{link.title}</p>
-            <p className="mt-2 text-sm text-foreground/60">{link.body}</p>
+          <Link key={link.title} href={link.href} className="rounded-[8px] border border-border/70 bg-background p-5 transition-colors hover:bg-muted">
+            <p className="text-lg font-bold">{link.title}</p>
+            <p className="mt-2 text-sm leading-6 text-foreground/60">{link.body}</p>
           </Link>
         ))}
       </section>
 
-      <section className="grid gap-sides p-sides md:grid-cols-12">
+      <section className="grid gap-10 border-t border-border/70 p-sides py-12 md:grid-cols-12 md:py-16">
         <div className="md:col-span-7">
-          <h2 className="text-3xl font-black tracking-normal">시공후기</h2>
+          <h2 className="text-2xl font-black tracking-normal md:text-3xl">시공후기</h2>
           <div className="mt-5 grid gap-2">
             {reviews.map((review, index) => (
-              <div key={review} className="flex justify-between gap-4 border-b border-border py-3 text-sm font-medium">
+              <div key={review} className="flex justify-between gap-4 border-b border-border/70 py-3.5 text-sm font-medium">
                 <span>{review}</span>
                 <span className="text-foreground/40">{index + 71}</span>
               </div>
@@ -114,10 +114,10 @@ export default function Home() {
           </div>
         </div>
         <div className="md:col-span-5">
-          <h2 className="text-3xl font-black tracking-normal">공지사항</h2>
+          <h2 className="text-2xl font-black tracking-normal md:text-3xl">공지사항</h2>
           <div className="mt-5 grid gap-3">
             {notices.map(notice => (
-              <div key={notice.title} className="rounded-[8px] bg-muted p-4">
+              <div key={notice.title} className="rounded-[8px] border border-border/70 bg-background p-4">
                 <p className="text-xs font-bold text-foreground/50">{notice.date}</p>
                 <p className="mt-1 font-bold">{notice.title}</p>
                 <p className="mt-2 text-sm text-foreground/60">{notice.body}</p>
@@ -127,7 +127,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="faq" className="grid gap-sides p-sides md:grid-cols-3">
+      <section id="faq" className="grid gap-6 p-sides pb-12 md:grid-cols-3 md:pb-16">
         {faqs.map(item => (
           <div key={item.q} className="border-t border-border pt-4">
             <h3 className="font-bold">{item.q}</h3>
@@ -136,11 +136,11 @@ export default function Home() {
         ))}
       </section>
 
-      <section id="quote" className="p-sides">
+      <section id="quote" className="p-sides pb-10">
         <div className="grid gap-8 rounded-[8px] bg-foreground p-6 text-background md:grid-cols-12 md:p-10">
           <div className="md:col-span-7">
-            <p className="text-sm font-bold uppercase text-background/60">시공 및 견적 문의</p>
-            <h2 className="mt-3 text-4xl font-black tracking-normal md:text-6xl">{businessInfo.tel}</h2>
+            <p className="text-sm font-bold text-background/60">시공 및 견적 문의</p>
+            <h2 className="mt-3 text-3xl font-black tracking-normal md:text-5xl">{businessInfo.tel}</h2>
             <p className="mt-4 text-background/70">{businessInfo.hours} · {businessInfo.closed}</p>
           </div>
           <div className="text-sm text-background/70 md:col-span-5 md:self-end">

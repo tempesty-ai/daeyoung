@@ -8,7 +8,7 @@ import { ArrowRightIcon, PhoneIcon } from 'lucide-react';
 
 export const ProductCard = ({ product }: { product: Product }) => {
   return (
-    <div className="relative w-full aspect-[3/4] md:aspect-square bg-muted group overflow-hidden">
+    <div className="group relative aspect-[3/4] w-full overflow-hidden rounded-[8px] bg-muted md:aspect-[4/5]">
       <Link
         href={`/product/${product.handle}`}
         className="block size-full focus-visible:outline-none"
@@ -20,11 +20,10 @@ export const ProductCard = ({ product }: { product: Product }) => {
         </Suspense>
       </Link>
 
-      {/* Interactive Overlay */}
       <div className="absolute inset-0 p-2 w-full pointer-events-none">
-        <div className="flex gap-6 justify-between items-baseline px-3 py-1 w-full font-semibold transition-all duration-300 translate-y-0 max-md:hidden group-hover:opacity-0 group-focus-visible:opacity-0 group-hover:-translate-y-full group-focus-visible:-translate-y-full">
-          <p className="text-sm uppercase 2xl:text-base text-balance">{product.title}</p>
-          <div className="flex gap-2 items-center text-sm uppercase 2xl:text-base">
+        <div className="hidden w-full translate-y-0 items-baseline justify-between gap-4 rounded-[6px] bg-background/75 px-3 py-2 text-sm font-semibold backdrop-blur-sm transition-all duration-300 group-hover:-translate-y-full group-hover:opacity-0 group-focus-visible:-translate-y-full group-focus-visible:opacity-0 md:flex">
+          <p className="text-balance">{product.title}</p>
+          <div className="flex shrink-0 items-center gap-2">
             {formatPrice(product.priceRange.minVariantPrice.amount, product.priceRange.minVariantPrice.currencyCode)}
             {product.compareAtPrice && (
               <span className="line-through opacity-30">
@@ -34,10 +33,10 @@ export const ProductCard = ({ product }: { product: Product }) => {
           </div>
         </div>
 
-        <div className="flex absolute inset-x-3 bottom-3 flex-col gap-8 px-2 py-3 rounded-md transition-all duration-300 pointer-events-none bg-popover md:opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 md:translate-y-1/3 group-hover:translate-y-0 group-focus-visible:translate-y-0 group-hover:pointer-events-auto group-focus-visible:pointer-events-auto max-md:pointer-events-auto">
-          <div className="grid grid-cols-2 gap-x-4 gap-y-8 items-end">
-            <p className="text-lg font-semibold text-pretty">{product.title}</p>
-            <div className="flex gap-2 items-center place-self-end text-lg font-semibold">
+        <div className="pointer-events-auto absolute inset-x-3 bottom-3 flex flex-col gap-4 rounded-[8px] border border-border/70 bg-popover/94 px-3 py-3 shadow-sm backdrop-blur-sm transition-all duration-300 md:pointer-events-none md:translate-y-5 md:opacity-0 group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:pointer-events-auto group-focus-visible:translate-y-0 group-focus-visible:opacity-100">
+          <div className="grid grid-cols-2 items-end gap-x-3 gap-y-4">
+            <p className="text-base font-semibold leading-tight text-pretty">{product.title}</p>
+            <div className="flex place-self-end items-center gap-2 text-base font-semibold">
               {formatPrice(product.priceRange.minVariantPrice.amount, product.priceRange.minVariantPrice.currencyCode)}
               {product.compareAtPrice && (
                 <span className="text-base line-through opacity-30">

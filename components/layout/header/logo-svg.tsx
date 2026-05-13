@@ -1,8 +1,8 @@
 export function LogoSvg({ className }: { className?: string }) {
   return (
     <div className={className} aria-label="대영벽지">
-      <div className="text-2xl font-black leading-none tracking-normal md:text-5xl">대영벽지</div>
-      <div className="mt-1 text-[10px] font-semibold uppercase tracking-normal text-foreground/60 md:text-xs">
+      <div className="text-xl font-black leading-none tracking-normal md:text-3xl">대영벽지</div>
+      <div className="mt-0.5 text-[9px] font-semibold uppercase tracking-normal text-foreground/55 md:text-[11px]">
         wallpaper · flooring · deco tile
       </div>
     </div>

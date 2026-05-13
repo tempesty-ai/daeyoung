@@ -121,12 +121,12 @@ export default async function ProductPage(props: { params: Promise<{ handle: str
 
         <div className="flex sticky top-0 flex-col col-span-5 2xl:col-span-4 max-md:col-span-full md:h-screen min-h-max max-md:p-sides md:pl-sides md:pt-top-spacing max-md:static">
           <div className="col-span-full">
-            <Breadcrumb className="col-span-full mb-4 md:mb-8">
+            <Breadcrumb className="col-span-full mb-4 md:mb-6">
               <BreadcrumbList>
                 <BreadcrumbItem>
                   <BreadcrumbLink asChild>
                     <Link href="/shop" prefetch>
-                      Shop
+                      제품보기
                     </Link>
                   </BreadcrumbLink>
                 </BreadcrumbItem>
@@ -150,12 +150,12 @@ export default async function ProductPage(props: { params: Promise<{ handle: str
             </Breadcrumb>
 
             <div className="flex flex-col col-span-full gap-4 md:mb-10 max-md:order-2">
-              <div className="flex flex-col grid-cols-2 px-3 py-2 rounded-md bg-popover md:grid md:gap-x-4 md:gap-y-10 place-items-baseline">
-                <h1 className="text-lg font-semibold lg:text-xl 2xl:text-2xl text-balance max-md:mb-4">
+              <div className="grid grid-cols-1 gap-4 rounded-[8px] border border-border/70 bg-popover px-4 py-4 md:grid-cols-2 md:gap-x-4 md:gap-y-8">
+                <h1 className="text-xl font-semibold leading-tight text-balance md:col-span-2 lg:text-2xl">
                   {product.title}
                 </h1>
-                <p className="text-sm font-medium">{product.description}</p>
-                <p className="flex gap-3 items-center text-lg font-semibold lg:text-xl 2xl:text-2xl max-md:mt-8">
+                <p className="text-sm font-medium leading-6 text-foreground/65">{product.description}</p>
+                <p className="flex items-center gap-3 place-self-start text-xl font-semibold md:place-self-end lg:text-2xl">
                   {formatPrice(
                     product.priceRange.minVariantPrice.amount,
                     product.priceRange.minVariantPrice.currencyCode
