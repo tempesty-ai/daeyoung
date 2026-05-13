@@ -99,6 +99,59 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="border-y border-border/70 bg-foreground px-sides py-3 text-background">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-5 overflow-hidden text-xs font-semibold uppercase">
+          <span className="whitespace-nowrap text-background/72">
+            Wallpaper
+          </span>
+          <span className="h-px flex-1 bg-background/18" />
+          <span className="whitespace-nowrap text-background/72">Flooring</span>
+          <span className="h-px flex-1 bg-background/18" />
+          <span className="whitespace-nowrap text-background/72">
+            Deco tile
+          </span>
+          <span className="h-px flex-1 bg-background/18 max-md:hidden" />
+          <span className="hidden whitespace-nowrap text-background/72 md:inline">
+            Consultation
+          </span>
+        </div>
+      </section>
+
+      <section className="px-sides py-12 md:py-16">
+        <div className="mx-auto grid max-w-6xl gap-4 md:grid-cols-3">
+          {[
+            [
+              "01",
+              "제품 상담",
+              "공간 분위기와 예산에 맞는 마감재를 선별합니다.",
+            ],
+            [
+              "02",
+              "현장 견적",
+              "면적, 구조, 기존 마감 상태를 기준으로 안내합니다.",
+            ],
+            [
+              "03",
+              "매장 방문",
+              "을지로 매장에서 샘플과 색감을 직접 확인할 수 있습니다.",
+            ],
+          ].map(([number, title, body]) => (
+            <div
+              key={title}
+              className="border-t border-border/70 pt-5 md:min-h-36"
+            >
+              <p className="font-display text-3xl font-bold text-foreground/24">
+                {number}
+              </p>
+              <h3 className="font-display mt-4 text-2xl font-bold">{title}</h3>
+              <p className="mt-3 text-sm leading-7 text-foreground/58">
+                {body}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section className="px-sides py-16 md:py-24">
         <div className="mx-auto max-w-6xl">
           <div className="mb-10 grid gap-5 md:grid-cols-12 md:items-end">
