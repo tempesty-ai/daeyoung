@@ -230,7 +230,9 @@ export default function Home() {
           <div className="md:col-span-7">
             <div className="flex items-end justify-between gap-4">
               <div>
-                <Badge variant="outline-secondary">Review</Badge>
+                <p className="text-xs font-semibold uppercase text-foreground/42">
+                  Review
+                </p>
                 <h2 className="font-display mt-3 text-2xl font-semibold tracking-normal md:text-3xl">
                   시공후기
                 </h2>
@@ -241,7 +243,7 @@ export default function Home() {
               {reviews.map((review, index) => (
                 <div
                   key={review}
-                  className="flex justify-between gap-4 rounded-sm px-3 py-3 text-sm font-medium transition-colors hover:bg-muted"
+                  className="flex justify-between gap-4 rounded-sm px-3 py-3 text-sm font-medium"
                 >
                   <span>{review}</span>
                   <span className="text-foreground/40">{index + 71}</span>
@@ -250,7 +252,9 @@ export default function Home() {
             </div>
           </div>
           <div className="md:col-span-5">
-            <Badge variant="outline-secondary">Notice</Badge>
+            <p className="text-xs font-semibold uppercase text-foreground/42">
+              Notice
+            </p>
             <h2 className="font-display mt-3 text-2xl font-semibold tracking-normal md:text-3xl">
               공지사항
             </h2>
@@ -258,7 +262,7 @@ export default function Home() {
               {notices.map((notice) => (
                 <div
                   key={notice.title}
-                  className="rounded-[8px] border border-border/70 bg-background p-4 transition-colors hover:bg-muted"
+                  className="rounded-[8px] border border-border/70 bg-background p-4"
                 >
                   <p className="text-xs font-bold text-foreground/50">
                     {notice.date}
