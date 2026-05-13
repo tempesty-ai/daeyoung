@@ -16,21 +16,21 @@ export async function Footer() {
           </div>
           <div className="grid gap-3 text-sm font-medium md:col-span-5 md:grid-cols-2">
             {[
-              "견적문의",
-              "도배",
-              "마루",
-              "장판",
-              "데코타일",
-              "시공후기",
-              "제품보기",
-              "FAQ",
+              { label: "견적문의", href: "/#quote" },
+              { label: "도배", href: "/shop/wallpaper" },
+              { label: "마루", href: "/shop/wood-floor" },
+              { label: "장판", href: "/shop/flooring" },
+              { label: "데코타일", href: "/shop/deco-tile" },
+              { label: "시공후기", href: "/#reviews" },
+              { label: "제품보기", href: "/shop" },
+              { label: "FAQ", href: "/#faq" },
             ].map((item) => (
               <Link
-                key={item}
-                href={item === "제품보기" ? "/shop" : "/#guide"}
+                key={item.label}
+                href={item.href}
                 className="text-background/70 hover:text-background"
               >
-                {item}
+                {item.label}
               </Link>
             ))}
           </div>

@@ -1,33 +1,29 @@
-'use client';
+"use client";
 
-import MobileMenu from './mobile-menu';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { cn } from '@/lib/utils';
-import { LogoSvg } from './logo-svg';
-import { NavItem } from '@/lib/types';
-import { Collection } from '@/lib/shopify/types';
+import MobileMenu from "./mobile-menu";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
+import { LogoSvg } from "./logo-svg";
+import { NavItem } from "@/lib/types";
+import { Collection } from "@/lib/shopify/types";
 
 export const navItems: NavItem[] = [
   {
-    label: '홈',
-    href: '/',
+    label: "홈",
+    href: "/",
   },
   {
-    label: '제품보기',
-    href: '/shop',
+    label: "제품보기",
+    href: "/shop",
   },
   {
-    label: '견적문의',
-    href: '/#quote',
+    label: "견적문의",
+    href: "/#quote",
   },
   {
-    label: '이용안내',
-    href: '/#guide',
-  },
-  {
-    label: 'FAQ',
-    href: '/#faq',
+    label: "FAQ",
+    href: "/#faq",
   },
 ];
 
@@ -49,13 +45,15 @@ export function Header({ collections }: HeaderProps) {
         </Link>
         <nav className="flex min-w-0 items-center justify-end gap-2">
           <ul className="hidden items-center gap-3 rounded-sm md:flex">
-            {navItems.map(item => (
+            {navItems.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
                   className={cn(
-                    'text-[13px] font-medium transition-colors duration-200',
-                    pathname === item.href ? 'text-foreground' : 'text-foreground/50 hover:text-foreground'
+                    "text-[13px] font-medium transition-colors duration-200",
+                    pathname === item.href
+                      ? "text-foreground"
+                      : "text-foreground/50 hover:text-foreground",
                   )}
                   prefetch
                 >
