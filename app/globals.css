@@ -392,9 +392,10 @@
   }
 }
 
-html,
-body,
-* {
-  overscroll-behavior: none;
+html {
   scroll-behavior: smooth;
+}
+
+body {
+  overscroll-behavior-y: auto;
 }
