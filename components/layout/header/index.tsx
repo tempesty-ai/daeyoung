@@ -39,16 +39,16 @@ export function Header({ collections }: HeaderProps) {
   const pathname = usePathname();
 
   return (
-    <header className="fixed left-0 top-0 z-50 w-full px-sides py-3">
-      <div className="mx-auto grid max-w-7xl grid-cols-3 items-center rounded-[8px] border border-border/70 bg-background/90 px-3 py-2 shadow-sm backdrop-blur-md md:grid-cols-12 md:gap-sides md:px-4">
+    <header className="fixed left-0 top-0 z-50 w-full px-4 py-4">
+      <div className="mx-auto grid w-full max-w-[1040px] grid-cols-3 items-center rounded-[8px] border border-border/70 bg-background/92 px-3 py-2.5 shadow-sm backdrop-blur-md md:flex md:justify-between md:gap-8 md:px-5">
         <div className="block flex-none md:hidden">
           <MobileMenu collections={collections} />
         </div>
-        <Link href="/" className="md:col-span-4 xl:col-span-3" prefetch>
+        <Link href="/" className="min-w-fit" prefetch>
           <LogoSvg className="w-fit max-w-64 max-md:place-self-center" />
         </Link>
-        <nav className="flex items-center justify-end gap-2 md:col-span-8 xl:col-span-9">
-          <ul className="hidden items-center gap-4 rounded-sm md:flex">
+        <nav className="flex min-w-0 items-center justify-end gap-2">
+          <ul className="hidden items-center gap-3 rounded-sm md:flex">
             {navItems.map(item => (
               <li key={item.href}>
                 <Link
