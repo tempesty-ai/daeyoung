@@ -21,8 +21,8 @@ export default function Home() {
               <Badge className="border-white/35 bg-white/12 text-white backdrop-blur" variant="outline-secondary">
                 방산시장 도배 · 장판 · 마루 · 데코타일
               </Badge>
-              <h1 className="mt-5 text-5xl font-black leading-none tracking-normal md:text-7xl">대영벽지</h1>
-              <p className="mt-5 max-w-2xl text-base font-medium leading-7 text-white/82 md:text-xl md:leading-8">
+              <h1 className="font-display mt-5 text-5xl font-semibold leading-none tracking-normal md:text-7xl">대영벽지</h1>
+              <p className="mt-5 max-w-2xl text-base font-normal leading-7 text-white/84 md:text-xl md:leading-8">
                 제품 상담부터 견적, 시공 예약까지 공간에 맞는 마감재를 차분하게 안내합니다.
               </p>
               <div className="mt-7 flex flex-wrap gap-2">
@@ -75,7 +75,7 @@ export default function Home() {
               </div>
               <div className="mt-4 flex items-start justify-between gap-4">
                 <div>
-                  <h2 className="text-xl font-bold">{collection.title}</h2>
+                  <h2 className="font-display text-xl font-semibold">{collection.title}</h2>
                   <p className="mt-1.5 text-sm leading-6 text-foreground/60">{collection.description}</p>
                 </div>
                 <ArrowRight className="mt-1 size-5 text-foreground/45 transition-transform group-hover:translate-x-1" />
@@ -89,7 +89,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-12">
           <div className="md:col-span-4">
             <Badge variant="outline-secondary">이용안내</Badge>
-            <h2 className="mt-4 max-w-xs text-3xl font-black leading-tight tracking-normal md:text-4xl">
+            <h2 className="font-display mt-4 max-w-xs text-3xl font-semibold leading-tight tracking-normal md:text-4xl">
               상담부터 시공까지
             </h2>
             <p className="mt-4 max-w-sm text-sm leading-6 text-foreground/62">
@@ -99,7 +99,7 @@ export default function Home() {
           <div className="grid gap-3 md:col-span-8 md:grid-cols-2">
             {guideSteps.map(step => (
               <div key={step.title} className="rounded-[8px] border border-border/70 bg-background p-5">
-                <h3 className="text-lg font-bold">{step.title}</h3>
+                <h3 className="font-display text-lg font-semibold">{step.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-foreground/64">{step.body}</p>
               </div>
             ))}
@@ -115,7 +115,7 @@ export default function Home() {
               href={link.href}
               className="rounded-[8px] border border-border/70 bg-background p-5 transition-colors hover:bg-muted"
             >
-              <p className="text-lg font-bold">{link.title}</p>
+              <p className="font-display text-lg font-semibold">{link.title}</p>
               <p className="mt-2 text-sm leading-6 text-foreground/60">{link.body}</p>
             </Link>
           ))}
@@ -125,7 +125,7 @@ export default function Home() {
       <section className="px-sides pb-14 md:pb-18">
         <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-12">
           <div className="md:col-span-7">
-            <h2 className="text-2xl font-black tracking-normal md:text-3xl">시공후기</h2>
+            <h2 className="font-display text-2xl font-semibold tracking-normal md:text-3xl">시공후기</h2>
             <div className="mt-5 grid gap-1">
               {reviews.map((review, index) => (
                 <div key={review} className="flex justify-between gap-4 border-b border-border/70 py-3.5 text-sm font-medium">
@@ -136,7 +136,7 @@ export default function Home() {
             </div>
           </div>
           <div className="md:col-span-5">
-            <h2 className="text-2xl font-black tracking-normal md:text-3xl">공지사항</h2>
+            <h2 className="font-display text-2xl font-semibold tracking-normal md:text-3xl">공지사항</h2>
             <div className="mt-5 grid gap-3">
               {notices.map(notice => (
                 <div key={notice.title} className="rounded-[8px] border border-border/70 bg-background p-4">
@@ -154,7 +154,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-3">
           {faqs.map(item => (
             <div key={item.q}>
-              <h3 className="font-bold">{item.q}</h3>
+              <h3 className="font-display font-semibold">{item.q}</h3>
               <p className="mt-2 text-sm leading-6 text-foreground/60">{item.a}</p>
             </div>
           ))}
@@ -165,7 +165,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl gap-8 rounded-[8px] bg-foreground p-6 text-background md:grid-cols-12 md:p-10">
           <div className="md:col-span-7">
             <p className="text-sm font-bold text-background/60">시공 및 견적 문의</p>
-            <h2 className="mt-3 text-3xl font-black tracking-normal md:text-5xl">{businessInfo.tel}</h2>
+            <h2 className="font-display mt-3 text-3xl font-semibold tracking-normal md:text-5xl">{businessInfo.tel}</h2>
             <p className="mt-4 text-sm leading-6 text-background/70 md:text-base">
               {businessInfo.hours} · {businessInfo.closed}
             </p>

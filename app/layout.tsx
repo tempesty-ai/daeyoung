@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Noto_Sans_KR } from 'next/font/google';
+import { Noto_Sans_KR, Noto_Serif_KR } from 'next/font/google';
 import './globals.css';
 import { Toaster } from 'sonner';
 import { NuqsAdapter } from 'nuqs/adapters/next/app';
@@ -22,6 +22,12 @@ const notoSansKr = Noto_Sans_KR({
   weight: ['300', '400', '500', '700', '900'],
 });
 
+const notoSerifKr = Noto_Serif_KR({
+  variable: '--font-noto-serif-kr',
+  subsets: ['latin'],
+  weight: ['500', '600', '700'],
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://daeyoung-wallpaper.co.kr'),
   title: '대영벽지',
@@ -39,7 +45,7 @@ export default async function RootLayout({
   return (
     <html lang="ko">
       <body
-        className={cn(notoSansKr.variable, 'antialiased min-h-screen', { 'is-v0': isV0 })}
+        className={cn(notoSansKr.variable, notoSerifKr.variable, 'antialiased min-h-screen', { 'is-v0': isV0 })}
         suppressHydrationWarning
       >
         <V0Provider isV0={isV0}>

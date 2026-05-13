@@ -54,7 +54,7 @@ export function Header({ collections }: HeaderProps) {
                 <Link
                   href={item.href}
                   className={cn(
-                    'text-sm font-semibold transition-colors duration-200',
+                    'text-[13px] font-medium transition-colors duration-200',
                     pathname === item.href ? 'text-foreground' : 'text-foreground/50 hover:text-foreground'
                   )}
                   prefetch
@@ -66,7 +66,7 @@ export function Header({ collections }: HeaderProps) {
           </ul>
           <Link
             href="/#quote"
-            className="hidden rounded-sm bg-foreground px-3 py-1.5 text-sm font-semibold text-background md:block"
+            className="hidden rounded-sm bg-foreground px-3 py-1.5 text-[13px] font-bold text-background md:block"
           >
             02.2279.7538~9
           </Link>

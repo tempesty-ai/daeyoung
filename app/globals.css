@@ -29,6 +29,7 @@
 
   /* Fonts */
   --font-family-sans: var(--font-noto-sans-kr), "Noto Sans KR", "Malgun Gothic", sans-serif;
+  --font-family-display: var(--font-noto-serif-kr), var(--font-noto-sans-kr), "Noto Serif KR", serif;
   --font-family-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 
   /* Line Heights */
