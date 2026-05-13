@@ -44,10 +44,10 @@ export function Header({ collections }: HeaderProps) {
         <div className="block flex-none md:hidden">
           <MobileMenu collections={collections} />
         </div>
-        <Link href="/" className="md:col-span-3 xl:col-span-2" prefetch>
-          <LogoSvg className="w-auto max-w-64 max-md:place-self-center md:w-full" />
+        <Link href="/" className="md:col-span-4 xl:col-span-3" prefetch>
+          <LogoSvg className="w-fit max-w-64 max-md:place-self-center" />
         </Link>
-        <nav className="flex items-center justify-end gap-2 md:col-span-9 xl:col-span-10">
+        <nav className="flex items-center justify-end gap-2 md:col-span-8 xl:col-span-9">
           <ul className="hidden items-center gap-4 rounded-sm md:flex">
             {navItems.map(item => (
               <li key={item.href}>
