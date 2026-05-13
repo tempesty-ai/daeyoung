@@ -26,6 +26,9 @@ export default function Home() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(22,18,13,0.76),rgba(22,18,13,0.48)_48%,rgba(22,18,13,0.18))]" />
+        <div className="pointer-events-none absolute right-[-0.5rem] top-24 hidden font-display text-[12vw] font-bold leading-none text-white/8 md:block">
+          DAEYOUNG
+        </div>
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background/95 to-transparent" />
         <div className="relative flex min-h-[92svh] flex-col justify-end px-sides pb-12 pt-32 text-white md:pb-16">
           <div className="mx-auto grid w-full max-w-6xl gap-10 md:grid-cols-12 md:items-end">
@@ -39,6 +42,17 @@ export default function Home() {
               <p className="mt-6 max-w-xl text-lg font-normal leading-8 text-white/82 md:text-2xl md:leading-9">
                 벽지와 바닥재를 고르는 가장 차분한 방법
               </p>
+              <div className="mt-5 flex flex-wrap gap-2 text-xs font-semibold text-white/72">
+                <span className="border border-white/18 bg-white/10 px-2.5 py-1.5 backdrop-blur-md">
+                  mood first
+                </span>
+                <span className="border border-white/18 bg-white/10 px-2.5 py-1.5 backdrop-blur-md">
+                  sample check
+                </span>
+                <span className="border border-white/18 bg-white/10 px-2.5 py-1.5 backdrop-blur-md">
+                  quick quote
+                </span>
+              </div>
               <div className="mt-8 grid max-w-xl grid-cols-3 divide-x divide-white/18 border-y border-white/16 py-4 text-sm text-white/68">
                 <div>
                   <p className="font-display text-2xl font-bold text-white">
@@ -149,6 +163,60 @@ export default function Home() {
               </p>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="px-sides py-8 md:py-16">
+        <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-12 md:items-center">
+          <div className="relative min-h-[520px] md:col-span-7">
+            <div className="absolute left-0 top-0 h-[390px] w-[72%] overflow-hidden rounded-[8px] bg-muted">
+              <Image
+                src={products[1].featuredImage.url}
+                alt={products[1].title}
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="absolute bottom-0 right-0 h-[330px] w-[54%] overflow-hidden rounded-[8px] border-[10px] border-background bg-muted">
+              <Image
+                src={products[8].featuredImage.url}
+                alt={products[8].title}
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="absolute left-6 top-[350px] max-w-56 rounded-[8px] bg-foreground p-4 text-background shadow-xl md:left-10">
+              <p className="text-xs font-semibold uppercase text-background/50">
+                mood board
+              </p>
+              <p className="font-display mt-2 text-2xl font-bold leading-tight">
+                벽과 바닥의 톤을 같이 봅니다
+              </p>
+            </div>
+          </div>
+          <div className="md:col-span-5">
+            <p className="text-xs font-semibold uppercase text-foreground/42">
+              New standard
+            </p>
+            <h2 className="font-display mt-4 text-5xl font-bold leading-none md:text-7xl">
+              요즘 공간은
+              <br />
+              톤이 먼저.
+            </h2>
+            <p className="mt-6 max-w-md text-base leading-8 text-foreground/62">
+              흰 벽지 하나도 조명, 바닥재, 가구 톤에 따라 전혀 다르게 보입니다.
+              대영벽지는 제품을 나열하기보다 공간의 분위기부터 맞춰봅니다.
+            </p>
+            <div className="mt-7 flex flex-wrap gap-2 text-sm font-semibold">
+              <span className="bg-foreground px-3 py-2 text-background">
+                warm white
+              </span>
+              <span className="border border-border px-3 py-2">soft gray</span>
+              <span className="border border-border px-3 py-2">
+                natural oak
+              </span>
+            </div>
+          </div>
         </div>
       </section>
 
