@@ -4,8 +4,8 @@ import { businessInfo } from '@/lib/yjwp-data';
 
 export async function Footer() {
   return (
-    <footer className="p-sides pt-0">
-      <div className="flex min-h-[340px] w-full flex-col justify-between gap-10 rounded-[8px] bg-foreground p-6 text-background md:p-9">
+    <footer className="px-sides pb-sides">
+      <div className="mx-auto flex min-h-[320px] max-w-7xl flex-col justify-between gap-10 rounded-[8px] bg-foreground p-6 text-background md:p-9">
         <div className="grid gap-8 md:grid-cols-12 md:gap-sides">
           <div className="md:col-span-7">
             <LogoSvg className="block max-w-[520px]" />

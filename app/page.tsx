@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Phone } from 'lucide-react';
+import { ArrowRight, MapPin, Phone } from 'lucide-react';
 import { PageLayout } from '@/components/layout/page-layout';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -12,138 +12,165 @@ export default function Home() {
 
   return (
     <PageLayout>
-      <section className="grid min-h-[760px] md:min-h-[82svh] md:grid-cols-12 md:gap-sides">
-        <div className="flex flex-col justify-end gap-6 p-sides pb-10 pt-28 md:col-span-5 md:pb-14 md:pt-top-spacing">
-          <Badge className="w-fit" variant="outline-secondary">
-            방산시장 도배 · 장판 · 마루 · 데코타일
-          </Badge>
-          <div>
-            <h1 className="text-5xl font-black leading-none tracking-normal md:text-6xl xl:text-7xl">대영벽지</h1>
-            <p className="mt-5 max-w-md text-base font-medium leading-7 text-foreground/70 md:text-lg">
-              투명하고 거품없는 견적, 제품 상담부터 시공 예약까지 한 번에 안내합니다.
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-2">
-            <Button asChild>
-              <Link href="#quote">
-                <Phone className="mr-2 size-4" />
-                견적문의
-              </Link>
-            </Button>
-            <Button asChild variant="secondary">
-              <Link href="/shop">
-                제품보기
-                <ArrowRight className="ml-2 size-4" />
-              </Link>
-            </Button>
-          </div>
-        </div>
-        <Link href={`/product/${heroProduct.handle}`} className="relative min-h-[430px] overflow-hidden md:col-span-7 md:min-h-0" prefetch>
-          <Image src={heroProduct.featuredImage.url} alt={heroProduct.title} fill priority className="object-cover" />
-          <div className="absolute inset-x-0 bottom-0 p-sides">
-            <div className="max-w-md rounded-[8px] border border-border/60 bg-background/88 p-4 backdrop-blur">
-              <p className="text-xs font-semibold text-foreground/55">대표 제품</p>
-              <div className="mt-2 flex items-end justify-between gap-4">
-                <p className="text-base font-semibold md:text-lg">{heroProduct.title}</p>
+      <section className="relative min-h-[86svh] overflow-hidden">
+        <Image src={heroProduct.featuredImage.url} alt="대영벽지 대표 시공 이미지" fill priority className="object-cover" />
+        <div className="absolute inset-0 bg-black/42" />
+        <div className="relative flex min-h-[86svh] flex-col justify-end px-sides pb-10 pt-28 text-white md:pb-14">
+          <div className="mx-auto grid w-full max-w-7xl gap-10 md:grid-cols-12 md:items-end">
+            <div className="md:col-span-8 lg:col-span-7">
+              <Badge className="border-white/35 bg-white/12 text-white backdrop-blur" variant="outline-secondary">
+                방산시장 도배 · 장판 · 마루 · 데코타일
+              </Badge>
+              <h1 className="mt-5 text-5xl font-black leading-none tracking-normal md:text-7xl">대영벽지</h1>
+              <p className="mt-5 max-w-2xl text-base font-medium leading-7 text-white/82 md:text-xl md:leading-8">
+                제품 상담부터 견적, 시공 예약까지 공간에 맞는 마감재를 차분하게 안내합니다.
+              </p>
+              <div className="mt-7 flex flex-wrap gap-2">
+                <Button asChild size="lg" className="bg-white text-foreground hover:bg-white/90">
+                  <Link href="#quote">
+                    <Phone className="mr-2 size-4" />
+                    견적문의
+                  </Link>
+                </Button>
+                <Button asChild size="lg" variant="secondary" className="bg-white/15 text-white hover:bg-white/25">
+                  <Link href="/shop">
+                    제품보기
+                    <ArrowRight className="ml-2 size-4" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+            <div className="grid gap-3 rounded-[8px] border border-white/20 bg-white/12 p-4 text-sm backdrop-blur-md md:col-span-4 lg:col-start-9">
+              <p className="font-semibold text-white/65">대표 제품</p>
+              <div className="flex items-end justify-between gap-4">
+                <p className="text-lg font-bold leading-tight">{heroProduct.title}</p>
                 <p className="shrink-0 text-lg font-bold">
                   {formatPrice(heroProduct.priceRange.minVariantPrice.amount, 'KRW')}
                 </p>
               </div>
+              <p className="flex items-start gap-2 text-white/72">
+                <MapPin className="mt-0.5 size-4 shrink-0" />
+                {businessInfo.address}
+              </p>
             </div>
           </div>
-        </Link>
-      </section>
-
-      <section className="grid gap-6 p-sides py-10 md:grid-cols-4 md:py-14">
-        {collections.map(collection => (
-          <Link key={collection.handle} href={`/shop/${collection.handle}`} className="group block" prefetch>
-            <div className="aspect-[4/5] overflow-hidden rounded-[8px] bg-muted md:aspect-square">
-              <Image
-                src={products.find(product => product.categoryId === collection.handle)?.featuredImage.url ?? products[0].featuredImage.url}
-                alt={collection.title}
-                width={900}
-                height={900}
-                className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
-            <div className="mt-4 flex items-start justify-between gap-4">
-              <div>
-                <h2 className="text-xl font-bold">{collection.title}</h2>
-                <p className="mt-1.5 text-sm leading-6 text-foreground/60">{collection.description}</p>
-              </div>
-              <ArrowRight className="mt-1 size-5" />
-            </div>
-          </Link>
-        ))}
-      </section>
-
-      <section id="guide" className="grid gap-6 border-t border-border/70 p-sides py-12 md:grid-cols-12 md:py-16">
-        <div className="md:col-span-4">
-          <Badge variant="outline-secondary">이용안내</Badge>
-          <h2 className="mt-4 max-w-xs text-3xl font-black leading-tight tracking-normal md:text-4xl">상담부터 시공까지</h2>
         </div>
-        <div className="grid gap-3 md:col-span-8 md:grid-cols-2">
-          {guideSteps.map(step => (
-            <div key={step.title} className="rounded-[8px] border border-border/70 bg-background p-5">
-              <h3 className="text-lg font-bold">{step.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-foreground/65">{step.body}</p>
+      </section>
+
+      <section className="px-sides py-12 md:py-16">
+        <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-4">
+          {collections.map(collection => (
+            <Link key={collection.handle} href={`/shop/${collection.handle}`} className="group block" prefetch>
+              <div className="aspect-[5/4] overflow-hidden rounded-[8px] bg-muted">
+                <Image
+                  src={
+                    products.find(product => product.categoryId === collection.handle)?.featuredImage.url ??
+                    products[0].featuredImage.url
+                  }
+                  alt={collection.title}
+                  width={900}
+                  height={720}
+                  className="size-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                />
+              </div>
+              <div className="mt-4 flex items-start justify-between gap-4">
+                <div>
+                  <h2 className="text-xl font-bold">{collection.title}</h2>
+                  <p className="mt-1.5 text-sm leading-6 text-foreground/60">{collection.description}</p>
+                </div>
+                <ArrowRight className="mt-1 size-5 text-foreground/45 transition-transform group-hover:translate-x-1" />
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section id="guide" className="border-y border-border/70 bg-muted/55 px-sides py-14 md:py-18">
+        <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-12">
+          <div className="md:col-span-4">
+            <Badge variant="outline-secondary">이용안내</Badge>
+            <h2 className="mt-4 max-w-xs text-3xl font-black leading-tight tracking-normal md:text-4xl">
+              상담부터 시공까지
+            </h2>
+            <p className="mt-4 max-w-sm text-sm leading-6 text-foreground/62">
+              일정, 제품, 현장 조건을 함께 확인해 시공 당일의 변수를 줄입니다.
+            </p>
+          </div>
+          <div className="grid gap-3 md:col-span-8 md:grid-cols-2">
+            {guideSteps.map(step => (
+              <div key={step.title} className="rounded-[8px] border border-border/70 bg-background p-5">
+                <h3 className="text-lg font-bold">{step.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-foreground/64">{step.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-sides py-12">
+        <div className="mx-auto grid max-w-7xl gap-3 md:grid-cols-3">
+          {quickLinks.map(link => (
+            <Link
+              key={link.title}
+              href={link.href}
+              className="rounded-[8px] border border-border/70 bg-background p-5 transition-colors hover:bg-muted"
+            >
+              <p className="text-lg font-bold">{link.title}</p>
+              <p className="mt-2 text-sm leading-6 text-foreground/60">{link.body}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="px-sides pb-14 md:pb-18">
+        <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-12">
+          <div className="md:col-span-7">
+            <h2 className="text-2xl font-black tracking-normal md:text-3xl">시공후기</h2>
+            <div className="mt-5 grid gap-1">
+              {reviews.map((review, index) => (
+                <div key={review} className="flex justify-between gap-4 border-b border-border/70 py-3.5 text-sm font-medium">
+                  <span>{review}</span>
+                  <span className="text-foreground/40">{index + 71}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="md:col-span-5">
+            <h2 className="text-2xl font-black tracking-normal md:text-3xl">공지사항</h2>
+            <div className="mt-5 grid gap-3">
+              {notices.map(notice => (
+                <div key={notice.title} className="rounded-[8px] border border-border/70 bg-background p-4">
+                  <p className="text-xs font-bold text-foreground/50">{notice.date}</p>
+                  <p className="mt-1 font-bold">{notice.title}</p>
+                  <p className="mt-2 text-sm leading-6 text-foreground/60">{notice.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" className="border-t border-border/70 px-sides py-12">
+        <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-3">
+          {faqs.map(item => (
+            <div key={item.q}>
+              <h3 className="font-bold">{item.q}</h3>
+              <p className="mt-2 text-sm leading-6 text-foreground/60">{item.a}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="grid gap-3 p-sides md:grid-cols-3">
-        {quickLinks.map(link => (
-          <Link key={link.title} href={link.href} className="rounded-[8px] border border-border/70 bg-background p-5 transition-colors hover:bg-muted">
-            <p className="text-lg font-bold">{link.title}</p>
-            <p className="mt-2 text-sm leading-6 text-foreground/60">{link.body}</p>
-          </Link>
-        ))}
-      </section>
-
-      <section className="grid gap-10 border-t border-border/70 p-sides py-12 md:grid-cols-12 md:py-16">
-        <div className="md:col-span-7">
-          <h2 className="text-2xl font-black tracking-normal md:text-3xl">시공후기</h2>
-          <div className="mt-5 grid gap-2">
-            {reviews.map((review, index) => (
-              <div key={review} className="flex justify-between gap-4 border-b border-border/70 py-3.5 text-sm font-medium">
-                <span>{review}</span>
-                <span className="text-foreground/40">{index + 71}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="md:col-span-5">
-          <h2 className="text-2xl font-black tracking-normal md:text-3xl">공지사항</h2>
-          <div className="mt-5 grid gap-3">
-            {notices.map(notice => (
-              <div key={notice.title} className="rounded-[8px] border border-border/70 bg-background p-4">
-                <p className="text-xs font-bold text-foreground/50">{notice.date}</p>
-                <p className="mt-1 font-bold">{notice.title}</p>
-                <p className="mt-2 text-sm text-foreground/60">{notice.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="faq" className="grid gap-6 p-sides pb-12 md:grid-cols-3 md:pb-16">
-        {faqs.map(item => (
-          <div key={item.q} className="border-t border-border pt-4">
-            <h3 className="font-bold">{item.q}</h3>
-            <p className="mt-2 text-sm text-foreground/60">{item.a}</p>
-          </div>
-        ))}
-      </section>
-
-      <section id="quote" className="p-sides pb-10">
-        <div className="grid gap-8 rounded-[8px] bg-foreground p-6 text-background md:grid-cols-12 md:p-10">
+      <section id="quote" className="px-sides pb-10">
+        <div className="mx-auto grid max-w-7xl gap-8 rounded-[8px] bg-foreground p-6 text-background md:grid-cols-12 md:p-10">
           <div className="md:col-span-7">
             <p className="text-sm font-bold text-background/60">시공 및 견적 문의</p>
             <h2 className="mt-3 text-3xl font-black tracking-normal md:text-5xl">{businessInfo.tel}</h2>
-            <p className="mt-4 text-background/70">{businessInfo.hours} · {businessInfo.closed}</p>
+            <p className="mt-4 text-sm leading-6 text-background/70 md:text-base">
+              {businessInfo.hours} · {businessInfo.closed}
+            </p>
           </div>
-          <div className="text-sm text-background/70 md:col-span-5 md:self-end">
+          <div className="text-sm leading-6 text-background/70 md:col-span-5 md:self-end">
             <p>{businessInfo.address}</p>
             <p className="mt-2">FAX : {businessInfo.fax}</p>
             <p>E-MAIL : {businessInfo.email}</p>
