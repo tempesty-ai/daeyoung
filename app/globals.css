@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Pretendard Variable";
+  src: url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/woff2/PretendardVariable.woff2")
+    format("woff2-variations");
+  font-weight: 45 920;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme inline {
   /* Color */
   --color-foreground: var(--foreground);
@@ -29,11 +38,11 @@
 
   /* Fonts */
   --font-family-sans:
-    var(--font-ibm-plex-sans-kr), "IBM Plex Sans KR", "Malgun Gothic",
-    sans-serif;
+    "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+    "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   --font-family-display:
-    var(--font-gowun-batang), var(--font-ibm-plex-sans-kr), "Gowun Batang",
-    serif;
+    "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+    "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   --font-family-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 
   /* Line Heights */
@@ -128,6 +137,12 @@
   }
   body {
     @apply bg-background text-foreground font-sans;
+    font-feature-settings:
+      "ss05" 1,
+      "ss06" 1,
+      "tnum" 1;
+    text-rendering: geometricPrecision;
+    letter-spacing: 0;
   }
 }
 

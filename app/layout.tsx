@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Gowun_Batang, IBM_Plex_Sans_KR } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
@@ -15,18 +14,6 @@ import { cn } from "../lib/utils";
 const V0Setup = dynamic(() => import("@/components/v0-setup"));
 
 const isV0 = process.env["VERCEL_URL"]?.includes("vusercontent.net") ?? false;
-
-const ibmPlexSansKr = IBM_Plex_Sans_KR({
-  variable: "--font-ibm-plex-sans-kr",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
-const gowunBatang = Gowun_Batang({
-  variable: "--font-gowun-batang",
-  subsets: ["latin"],
-  weight: ["400", "700"],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://daeyoung-wallpaper.co.kr"),
@@ -46,8 +33,6 @@ export default async function RootLayout({
     <html lang="ko">
       <body
         className={cn(
-          ibmPlexSansKr.variable,
-          gowunBatang.variable,
           "antialiased min-h-screen",
           { "is-v0": isV0 },
         )}
