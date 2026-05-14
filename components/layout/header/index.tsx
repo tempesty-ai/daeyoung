@@ -14,16 +14,16 @@ export const navItems: NavItem[] = [
     href: "/",
   },
   {
-    label: "제품보기",
-    href: "/shop",
+    label: "시공사례",
+    href: "/#reviews",
   },
   {
     label: "견적문의",
     href: "/#quote",
   },
   {
-    label: "FAQ",
-    href: "/#faq",
+    label: "제품보기",
+    href: "/shop",
   },
 ];
 
