@@ -103,83 +103,94 @@ export default function Home() {
                 </Button>
               </div>
             </div>
-            <div className="grid gap-3 lg:col-span-6">
-              <div
-                id="quote"
-                className="rounded-[8px] border border-white/18 bg-white/94 p-5 text-foreground shadow-2xl shadow-black/25 backdrop-blur-md md:p-6"
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <p className="text-xs font-extrabold uppercase text-foreground/42">
-                      Quick quote
-                    </p>
-                    <h2 className="font-display mt-2 text-3xl font-extrabold leading-tight md:text-4xl">
-                      견적문의 바로하기
-                    </h2>
+            <div
+              id="quote"
+              className="rounded-[8px] border border-white/18 bg-white/95 p-4 text-foreground shadow-2xl shadow-black/25 backdrop-blur-md md:p-5 lg:col-span-6"
+            >
+              <div className="flex items-center justify-between border-b border-border/70 pb-3">
+                <div>
+                  <p className="text-xs font-extrabold uppercase text-foreground/42">
+                    상담 게시판
+                  </p>
+                  <h2 className="font-display mt-1 text-2xl font-extrabold md:text-3xl">
+                    견적문의 · 시공사례
+                  </h2>
+                </div>
+                <span className="rounded-full bg-foreground px-3 py-1.5 text-xs font-bold text-background">
+                  바로 확인
+                </span>
+              </div>
+
+              <div className="grid gap-4 pt-4 md:grid-cols-[0.95fr_1.05fr]">
+                <div className="rounded-[8px] bg-foreground p-4 text-background">
+                  <p className="text-xs font-bold text-background/55">
+                    견적문의
+                  </p>
+                  <p className="font-display mt-2 text-3xl font-extrabold leading-none">
+                    {businessInfo.tel}
+                  </p>
+                  <p className="mt-3 text-sm leading-6 text-background/68">
+                    방 크기와 사진만 있어도 제품 방향과 예상 견적을 빠르게
+                    안내합니다.
+                  </p>
+                  <Link
+                    href="tel:0222797538"
+                    className="mt-5 flex items-center justify-between rounded-[8px] bg-background px-4 py-3 text-sm font-extrabold text-foreground"
+                  >
+                    바로 전화 견적
+                    <Phone className="size-4" />
+                  </Link>
+                </div>
+
+                <div className="overflow-hidden rounded-[8px] border border-border/70 bg-background">
+                  <div className="flex items-center justify-between border-b border-border/70 px-4 py-3">
+                    <p className="text-sm font-extrabold">시공사례</p>
+                    <Link
+                      href="#reviews"
+                      className="text-xs font-bold text-foreground/48"
+                    >
+                      더보기
+                    </Link>
                   </div>
-                  <span className="rounded-full bg-foreground px-3 py-1.5 text-xs font-bold text-background">
-                    상담중
-                  </span>
+                  <div className="divide-y divide-border/70">
+                    {reviews.slice(0, 4).map((review, index) => (
+                      <Link
+                        href="#reviews"
+                        key={review}
+                        className="grid grid-cols-[2.25rem_1fr_auto] items-center gap-3 px-4 py-3 text-sm transition-colors hover:bg-foreground/5"
+                      >
+                        <span className="text-xs font-bold text-foreground/34">
+                          {index + 71}
+                        </span>
+                        <span className="line-clamp-1 font-semibold">
+                          {review}
+                        </span>
+                        <ArrowRight className="size-4 text-foreground/36" />
+                      </Link>
+                    ))}
+                  </div>
                 </div>
-                <Link
-                  href="tel:0222797538"
-                  className="mt-5 flex items-center justify-between rounded-[8px] bg-foreground p-4 text-background transition-transform hover:scale-[1.01]"
-                >
-                  <span>
-                    <span className="block text-xs font-semibold text-background/58">
-                      전화 견적
-                    </span>
-                    <span className="font-display mt-1 block text-3xl font-extrabold leading-none md:text-4xl">
-                      {businessInfo.tel}
-                    </span>
-                  </span>
-                  <Phone className="size-6" />
-                </Link>
-                <div className="mt-4 grid gap-2 text-sm font-semibold text-foreground/68 sm:grid-cols-3">
-                  <p className="flex items-center gap-2 rounded-[8px] bg-foreground/5 px-3 py-3">
-                    <Ruler className="size-4 text-foreground" />
-                    실측 상담
-                  </p>
-                  <p className="flex items-center gap-2 rounded-[8px] bg-foreground/5 px-3 py-3">
-                    <CheckCircle2 className="size-4 text-foreground" />
-                    자재 추천
-                  </p>
-                  <p className="flex items-center gap-2 rounded-[8px] bg-foreground/5 px-3 py-3">
-                    <Clock className="size-4 text-foreground" />
-                    빠른 안내
-                  </p>
-                </div>
-                <p className="mt-4 flex items-start gap-2 text-sm leading-6 text-foreground/55">
-                  <MapPin className="mt-0.5 size-4 shrink-0 text-foreground" />
-                  {businessInfo.address}
+              </div>
+
+              <div className="mt-4 grid gap-2 text-sm font-semibold text-foreground/62 sm:grid-cols-3">
+                <p className="flex items-center gap-2 rounded-[8px] bg-foreground/5 px-3 py-3">
+                  <Ruler className="size-4 text-foreground" />
+                  실측 상담
+                </p>
+                <p className="flex items-center gap-2 rounded-[8px] bg-foreground/5 px-3 py-3">
+                  <CheckCircle2 className="size-4 text-foreground" />
+                  자재 추천
+                </p>
+                <p className="flex items-center gap-2 rounded-[8px] bg-foreground/5 px-3 py-3">
+                  <Clock className="size-4 text-foreground" />
+                  빠른 안내
                 </p>
               </div>
 
-              <div className="grid gap-3 sm:grid-cols-2">
-                {reviews.slice(0, 2).map((review, index) => (
-                  <Link
-                    href="#reviews"
-                    key={review}
-                    className="group overflow-hidden rounded-[8px] border border-white/16 bg-white/12 text-white shadow-xl shadow-black/15 backdrop-blur-md"
-                  >
-                    <div className="relative h-32 overflow-hidden">
-                      <Image
-                        src={products[index + 4].featuredImage.url}
-                        alt={`${review} 시공사례`}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/72 to-transparent" />
-                      <span className="absolute left-3 top-3 rounded-full bg-white px-2.5 py-1 text-xs font-extrabold text-foreground">
-                        시공사례 0{index + 1}
-                      </span>
-                    </div>
-                    <p className="line-clamp-2 p-4 text-sm font-bold leading-6 text-white/88">
-                      {review}
-                    </p>
-                  </Link>
-                ))}
-              </div>
+              <p className="mt-4 flex items-start gap-2 text-sm leading-6 text-foreground/55">
+                <MapPin className="mt-0.5 size-4 shrink-0 text-foreground" />
+                {businessInfo.address}
+              </p>
             </div>
           </div>
         </div>
@@ -204,49 +215,60 @@ export default function Home() {
       </section>
 
       <section className="px-sides py-12 md:py-16">
-        <div className="mx-auto grid max-w-6xl gap-4 lg:grid-cols-12">
-          <div className="rounded-[8px] bg-foreground p-6 text-background md:p-8 lg:col-span-5">
-            <p className="text-xs font-extrabold uppercase text-background/50">
-              Contact first
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-5 flex flex-col justify-between gap-3 md:flex-row md:items-end">
+            <div>
+              <p className="text-xs font-extrabold uppercase text-foreground/42">
+                Center board
+              </p>
+              <h2 className="font-display mt-2 text-3xl font-extrabold leading-tight md:text-5xl">
+                가운데에서 바로 보는 상담창구
+              </h2>
+            </div>
+            <p className="max-w-md text-sm leading-7 text-foreground/58">
+              시공사례를 확인하고, 같은 화면에서 바로 견적문의로 이어지게
+              배치했습니다.
             </p>
-            <h2 className="font-display mt-3 text-4xl font-extrabold leading-tight md:text-5xl">
-              고민되면 사진부터 보내고 전화하세요
-            </h2>
-            <p className="mt-5 text-sm leading-7 text-background/68">
-              방 크기, 원하는 분위기, 기존 벽 상태만 알려주셔도 제품 방향과
-              예상 견적을 빠르게 잡아드립니다.
-            </p>
-            <Button
-              asChild
-              size="lg"
-              className="mt-7 w-full bg-background text-foreground hover:bg-background/90"
-            >
-              <Link href="tel:0222797538">
-                <Phone className="size-4" />
-                지금 견적문의
-              </Link>
-            </Button>
           </div>
-          <div className="grid gap-4 lg:col-span-7 md:grid-cols-3">
+
+          <div className="overflow-hidden rounded-[8px] border border-border/70 bg-card">
+            <div className="grid border-b border-border/70 bg-foreground px-4 py-3 text-xs font-extrabold uppercase text-background/72 md:grid-cols-[6rem_1fr_10rem_8rem]">
+              <span>번호</span>
+              <span>내용</span>
+              <span className="hidden md:block">분류</span>
+              <span className="hidden md:block text-right">바로가기</span>
+            </div>
             {[
-              ["01", "상담", "사진과 면적을 기준으로 필요한 자재를 먼저 좁힙니다."],
-              ["02", "견적", "벽지, 장판, 마루, 데코타일별 예상 비용을 안내합니다."],
-              ["03", "사례 확인", "비슷한 공간의 시공사례와 톤을 함께 비교합니다."],
-            ].map(([number, title, body]) => (
-              <div
-                key={title}
-                className="rounded-[8px] border border-border/70 bg-card p-5 md:min-h-64"
+              {
+                no: "공지",
+                title: "벽지 · 장판 · 마루 견적문의 바로 연결",
+                type: "견적문의",
+                href: "tel:0222797538",
+              },
+              ...reviews.slice(0, 5).map((review, index) => ({
+                no: `${index + 71}`,
+                title: review,
+                type: "시공사례",
+                href: "#reviews",
+              })),
+            ].map((item) => (
+              <Link
+                href={item.href}
+                key={`${item.no}-${item.title}`}
+                className="grid items-center gap-3 border-b border-border/70 px-4 py-4 text-sm transition-colors last:border-b-0 hover:bg-foreground/5 md:grid-cols-[6rem_1fr_10rem_8rem]"
               >
-                <p className="font-display text-4xl font-extrabold text-foreground/20">
-                  {number}
-                </p>
-                <h3 className="font-display mt-12 text-2xl font-extrabold">
-                  {title}
-                </h3>
-                <p className="mt-3 text-sm leading-7 text-foreground/58">
-                  {body}
-                </p>
-              </div>
+                <span className="font-extrabold text-foreground/38">
+                  {item.no}
+                </span>
+                <span className="font-bold">{item.title}</span>
+                <span className="w-fit rounded-full bg-foreground/7 px-2.5 py-1 text-xs font-bold text-foreground/55">
+                  {item.type}
+                </span>
+                <span className="flex items-center gap-1 text-xs font-extrabold text-foreground md:justify-end">
+                  확인하기
+                  <ArrowRight className="size-4" />
+                </span>
+              </Link>
             ))}
           </div>
         </div>
