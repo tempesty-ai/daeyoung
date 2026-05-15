@@ -122,20 +122,20 @@ export default function Home() {
               </div>
 
               <div className="grid gap-4 pt-4 md:grid-cols-[0.95fr_1.05fr]">
-                <div className="rounded-[8px] bg-foreground p-4 text-background">
-                  <p className="text-xs font-bold text-background/55">
+                <div className="rounded-[8px] bg-foreground p-4 text-background sm:p-5">
+                  <p className="text-[0.7rem] font-extrabold text-background/55">
                     견적문의
                   </p>
-                  <p className="font-display mt-2 text-3xl font-extrabold leading-none">
+                  <p className="font-display mt-2 whitespace-nowrap text-[clamp(1.4rem,2.2vw,1.72rem)] font-extrabold leading-[0.98] tracking-normal">
                     {businessInfo.tel}
                   </p>
-                  <p className="mt-3 text-sm leading-6 text-background/68">
+                  <p className="mt-4 text-sm leading-7 text-background/68">
                     방 크기와 사진만 있어도 제품 방향과 예상 견적을 빠르게
                     안내합니다.
                   </p>
                   <Link
                     href="tel:0222797538"
-                    className="mt-5 flex items-center justify-between rounded-[8px] bg-background px-4 py-3 text-sm font-extrabold text-foreground"
+                    className="mt-5 flex min-h-12 items-center justify-between rounded-[8px] border border-background/70 bg-background px-4 py-3 text-sm font-extrabold text-foreground shadow-sm transition-colors hover:bg-background/92"
                   >
                     바로 전화 견적
                     <Phone className="size-4" />
